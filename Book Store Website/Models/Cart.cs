@@ -16,7 +16,7 @@ namespace Book_Store_Website.Models
         public int Quantity { get; set; }
 
         [Required]
-        public string Author { get; set; }
+        public string? Author { get; set; }
 
         [Required]
         public double Price { get; set; }

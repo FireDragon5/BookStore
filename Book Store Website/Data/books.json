@@ -9,7 +9,7 @@
   {
     "Id": 2,
     "Title": "The Catcher in the Rye",
-    "Description": "The Catcher in the Rye is a novel by J. D. Salinger, partially published in serial form in 1945–1946 and as a novel in 1951. It was originally intended for adults but is often read by adolescents for its themes of angst, alienation, and as a critique on superficiality in society.",
+    "Description": "The Catcher in the Rye is a novel by J. D. Salinger, partially published in serial form in 1945ï¿½1946 and as a novel in 1951. It was originally intended for adults but is often read by adolescents for its themes of angst, alienation, and as a critique on superficiality in society.",
     "Author": "J. D. Salinger",
     "Price": 9.99
   },
@@ -68,5 +68,42 @@
     "Description": "Great Expectations is a novel by Charles Dickens, first published in 1861. It follows the life of an orphan named Pip and his journey from childhood to adulthood, exploring themes of social class, identity, and ambition in Victorian England.",
     "Author": "Charles Dickens",
     "Price": 12.99
+  },
+
+  {
+    "Id": 11,
+    "Title": "The Alchemist",
+    "Description": "The Alchemist is a philosophical novel by Brazilian author Paulo Coelho. It follows the journey of a young Andalusian shepherd boy named Santiago as he travels to Egypt in search of a hidden treasure, uncovering valuable life lessons along the way.",
+    "Author": "Paulo Coelho",
+    "Price": 9.99
+  },
+  {
+    "Id": 12,
+    "Title": "To the Lighthouse",
+    "Description": "To the Lighthouse is a novel by Virginia Woolf, published in 1927. It is a pioneering work of modernist literature that explores the complexities of human relationships, the passage of time, and the meaning of art.",
+    "Author": "Virginia Woolf",
+    "Price": 10.99
+  },
+  {
+    "Id": 13,
+    "Title": "The Picture of Dorian Gray",
+    "Description": "The Picture of Dorian Gray is a novel by Oscar Wilde, first published in 1890. It tells the story of a young man named Dorian Gray who remains eternally youthful while a portrait of him ages and reflects the consequences of his immoral actions.",
+    "Author": "Oscar Wilde",
+    "Price": 8.99
+  },
+  {
+    "Id": 14,
+    "Title": "Brave New World",
+    "Description": "Brave New World is a dystopian novel by Aldous Huxley, published in 1932. Set in a futuristic world where society is controlled through technology and conditioning, it explores themes of individuality, freedom, and the dangers of a utopian society.",
+    "Author": "Aldous Huxley",
+    "Price": 11.99
+  },
+  {
+    "Id": 15,
+    "Title": "The Odyssey",
+    "Description": "The Odyssey is an epic poem attributed to the ancient Greek poet Homer. It follows the hero Odysseus' journey home after the Trojan War, encountering mythical creatures, gods, and facing various challenges along the way.",
+    "Author": "Homer",
+    "Price": 12.99
   }
+
 ]
