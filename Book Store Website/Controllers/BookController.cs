@@ -86,10 +86,21 @@ namespace Book_Store_Website.Controllers
             //Add book to cart
             _cart.AddBookToCart(book.Id, book.Author, book.Title, 1, book.Price);
 
-            //Get the cart list
-            var cart = _cart.GetCart();
+            return RedirectToAction("Cart");
+        }
 
-            return RedirectToAction("Cart", cart);
+        [HttpPost]
+        public IActionResult UpdateQuantity(int bookId, int quantity)
+        {
+            _cart.UpdateQuantity(bookId, quantity);
+            return RedirectToAction("Cart");
+        }
+
+        [HttpPost]
+        public IActionResult RemoveItem(int bookId)
+        {
+            _cart.RemoveFromCart(bookId);
+            return RedirectToAction("Cart");
         }
 
         [HttpPost]

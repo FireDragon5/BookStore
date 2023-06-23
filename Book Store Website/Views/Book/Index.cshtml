@@ -22,22 +22,73 @@
 
 
         <div class="col cols-md-3 g-3">
-            <div class="card" style="width: 25rem;">
-                <img src="./Images/book.png" class="card-img-top mg-2" alt="...">
-                <div class="card-body">
-                    <h5 class="card-title">@book.Title</h5>
-                    <p class="card-text ">@book.Description</p>
-                    @*Author*@
-                    <p class="card-text ">@book.Author</p>
-                    @*Price*@
-                    <p class="card-text ">Price: $ @book.Price</p>
-                    @*When the user clicks on the button, it should add it to the cart*@
-                    <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-primary">Details</a>
-                    @*<a asp-action="" asp-controller="Book" asp-route-id="@book.Id" class="btn btn-primary float-end">Details</a>*@
+
+            <a href="@Url.Action("Details", "Book", new { id = book.Id })">
+                <div class="card book-card" style="width: 25rem;">
+                    <img src="./Images/book.png" class="card-img-top mg-2" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@book.Title</h5>
+                        @*Author*@
+                        <p class="card-text ">@book.Author</p>
+                        @*Price*@
+                        <p class="card-text fw-bold">Price: $@book.Price</p>
+                        @*When the user clicks on the button, it should add it to the cart*@
+
+                        <a  asp-action="AddToCart" asp-controller="Book"
+                           asp-route-id="@book.Id" class="btn addcartbtn btn-primary float-end">
+                           <i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to cart</a>
+
+                    </div>
                 </div>
-            </div>
+
+            </a>
         </div>
+            
+
+           
 
     }
 
 </div>
+
+<style>
+        
+    .book-card:hover{
+       
+        transform: scale(1.1);
+        transition: 0.5s;
+    }
+
+    .addcartbtn{
+        /*pill shape*/
+        
+        border-radius: 20px;
+        background-color: #333;
+        border: 1px solid #333;
+        
+    }
+
+    .addcartbtn:hover{
+        background-color: white;
+        color: black;
+            border: 1px solid #333;
+        }
+
+    .book-card{
+        margin-bottom: 2rem;
+        border: 1px solid #333;
+    }
+
+        a{
+           text-decoration: none;
+           color: black;
+
+        }
+
+        a:hover{
+            text-decoration: none;
+            color: black;
+
+        }
+
+</style>

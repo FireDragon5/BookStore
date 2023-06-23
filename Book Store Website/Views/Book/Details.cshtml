@@ -3,6 +3,8 @@
 
 ViewBag.Title = Model.Title;
 
+//Get the id of the book
+int id = Model.Id;
 
 }
 
@@ -14,7 +16,7 @@ ViewBag.Title = Model.Title;
 
     <div class="row">
         <div class="col cols-md-3 g-3 ">
-            <div class="card " style="width: 40rem;">
+            <div class="card book-card" style="width: 40rem;">
                 <img src="/Images/open_book.png" class="card-img-top " style="width: auto; height:25rem;" alt="Book">
                 <div class="card-body">
                     <h5 class="card-title">@Model.Title</h5>
@@ -23,14 +25,94 @@ ViewBag.Title = Model.Title;
 
                     <p class="card-text ">@Model.Author</p>
 
-                    <a href="@Url.Action("Index", "Book")" class="btn btn-primary">Back</a>
+                    <a href="@Url.Action("Index", "Book")" class="btn addcartbtn btn-primary">Back</a>
 
                     @*Add to cart*@
                     <a asp-action="AddToCart" asp-controller="Book"
-                       asp-route-id="@Model.Id" class="btn btn-primary float-end">Add to cart</a>
+                       asp-route-id="@Model.Id" class="btn btn-primary addcartbtn float-end">Add to cart</a>
                 </div>
             </div>
         </div>
     </div>
 
 </div>
+
+
+<hr />
+
+<h2 class="text-center">You might also like</h2>
+
+
+<div class="row justify-content-center">
+    @foreach (var book in RecommendedBooks.GetRecommendedBooks(id))
+    {
+        <div class="col-md-3">
+            <a href="@Url.Action("Details", "Book", new { id = book.Id })">
+                <div class="card re-book-card " style="width: 18em;">
+                    <img src="/Images/book.png" class="card-img-top mg-2" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">@book.Title</h5>
+                        @*Author*@
+                        <p class="card-text ">@book.Author</p>
+                        @*Price*@
+                        <p class="card-text fw-bold">Price: $@book.Price</p>
+                        @*When the user clicks on the button, it should add it to the cart*@
+
+                        <a asp-action="AddToCart" asp-controller="Book"
+                           asp-route-id="@book.Id" class="btn addcartbtn btn-primary float-end">
+                            <i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to cart
+                        </a>
+
+                    </div>
+                </div>
+
+            </a>
+        </div>
+    }
+</div>
+
+
+
+<style>
+
+
+    .addcartbtn {
+        /*pill shape*/
+
+        border-radius: 20px;
+        background-color: #333;
+        border: 1px solid #333;
+        margin-top: 2rem;
+    }
+
+        .addcartbtn:hover {
+            background-color: white;
+            color: black;
+            border: 1px solid #333;
+        }
+
+
+    .re-book-card{
+        margin-top: 2rem;
+        border: 1px solid #333;
+        margin-right: 10rem;
+    }
+
+    .book-card {
+
+        margin-top: 2rem;
+        border: 1px solid #333;
+    }
+
+    a {
+        text-decoration: none;
+        color: black;
+    }
+
+        a:hover {
+            text-decoration: none;
+            color: black;
+        }
+
+</style>
+

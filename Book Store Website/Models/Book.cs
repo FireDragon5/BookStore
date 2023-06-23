@@ -89,4 +89,18 @@ namespace Book_Store_Website.Models
             return books;
         }
     }
+
+    //Recommended books exsept the books that is being viewed
+
+    public class RecommendedBooks
+    {
+        public static List<Book>? GetRecommendedBooks(int id)
+        {
+            //Only show 3 books
+
+            List<Book>? books = Book.LoadBooksFromJson("./Data/books.json");
+            books = books?.Where(x => x.Id != id).Take(3).ToList();
+            return books;
+        }
+    }
 }

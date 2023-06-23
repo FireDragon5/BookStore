@@ -1,4 +1,5 @@
-﻿using Book_Store_Website.Models;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Book_Store_Website.Models
@@ -9,13 +10,13 @@ namespace Book_Store_Website.Models
         public int BookId { get; set; }
 
         [Required]
-        public string? Title { get; set; }
+        public string Title { get; set; }
 
         [Required]
         public int Quantity { get; set; }
 
         [Required]
-        public string? Author { get; set; }
+        public string Author { get; set; }
 
         [Required]
         public double Price { get; set; }
@@ -25,19 +26,12 @@ namespace Book_Store_Website.Models
     {
         public List<ItemsInCart> Items { get; set; } = new List<ItemsInCart>();
 
-        
-
-
-
         public List<ItemsInCart> GetCart()
         {
-
             return Items;
-         
         }
 
-
-        //Display the items in the cart to the console
+        // Display the items in the cart to the console
         public void DisplayCart()
         {
             foreach (var item in Items)
@@ -46,16 +40,13 @@ namespace Book_Store_Website.Models
             }
         }
 
-
-        public void AddBookToCart(int bookId, string? title, string? author, int quantity, double price)
+        public void AddBookToCart(int bookId, string title, string author, int quantity, double price)
         {
             ItemsInCart item = new ItemsInCart
             {
                 BookId = bookId,
                 Title = title,
-
                 Quantity = quantity,
-
                 Author = author,
                 Price = price
             };
@@ -73,14 +64,17 @@ namespace Book_Store_Website.Models
             Items.Clear();
         }
 
-        //Update quantity
         public void UpdateQuantity(int bookId, int quantity)
         {
-            Items.Find(x => x.BookId == bookId).Quantity = quantity;
-
-            if (quantity == 0)
+            var item = Items.Find(x => x.BookId == bookId);
+            if (item != null)
             {
-                RemoveFromCart(bookId);
+                item.Quantity = quantity;
+
+                if (quantity == 0)
+                {
+                    RemoveFromCart(bookId);
+                }
             }
         }
     }
