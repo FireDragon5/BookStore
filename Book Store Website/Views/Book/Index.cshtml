@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Book>;
+
+@*Make a book store webiste*@
+
+
+@{
+
+    ViewBag.Title = "PageTurner";
+
+    var sbooks = Book.BookSearch.getSearchedBook();
+}
+
+                                                    
+
+
+<h1 class="text-center">Browse Books</h1>
+<div class="row">
+    @*Make it with cards*@
+    @foreach (var book in sbooks ?? Enumerable.Empty<Book>())
+    {
+        @*Put 3 books in a row*@
+
+
+        <div class="col cols-md-3 g-3">
+            <div class="card" style="width: 25rem;">
+                <img src="./Images/book.png" class="card-img-top mg-2" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">@book.Title</h5>
+                    <p class="card-text ">@book.Description</p>
+                    @*Author*@
+                    <p class="card-text ">@book.Author</p>
+                    @*Price*@
+                    <p class="card-text ">Price: $ @book.Price</p>
+                    @*When the user clicks on the button, it should add it to the cart*@
+                    <a href="@Url.Action("Details", "Book", new { id = book.Id })" class="btn btn-primary">Details</a>
+                    @*<a asp-action="" asp-controller="Book" asp-route-id="@book.Id" class="btn btn-primary float-end">Details</a>*@
+                </div>
+            </div>
+        </div>
+
+    }
+
+</div>

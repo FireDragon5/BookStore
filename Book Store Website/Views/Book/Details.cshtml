@@ -1,0 +1,36 @@
+﻿@model Book;
+@{
+
+ViewBag.Title = Model.Title;
+
+
+}
+
+
+<h2 class="text-center">@ViewBag.Title</h2>
+
+
+<div class="d-flex justify-content-center">
+
+    <div class="row">
+        <div class="col cols-md-3 g-3 ">
+            <div class="card " style="width: 40rem;">
+                <img src="/Images/open_book.png" class="card-img-top " style="width: auto; height:25rem;" alt="Book">
+                <div class="card-body">
+                    <h5 class="card-title">@Model.Title</h5>
+                    <p class="card-text ">@Model.Description</p>
+
+
+                    <p class="card-text ">@Model.Author</p>
+
+                    <a href="@Url.Action("Index", "Book")" class="btn btn-primary">Back</a>
+
+                    @*Add to cart*@
+                    <a asp-action="AddToCart" asp-controller="Book"
+                       asp-route-id="@Model.Id" class="btn btn-primary float-end">Add to cart</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
