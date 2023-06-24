@@ -1,0 +1,9 @@
+[
+  {
+    "BookId": 1,
+    "Title": "The Great Gatsby",
+    "Quantity": 1,
+    "Author": "F. Scott Fitzgerald",
+    "Price": 10.99
+  }
+]

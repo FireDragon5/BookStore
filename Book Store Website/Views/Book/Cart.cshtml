@@ -2,9 +2,13 @@
 
 @{
     ViewBag.Title = "Cart";
+
+    // Get the items from the JSON file
+    Cart cart = new Cart();
+    List<ItemsInCart> itemsInCart = cart.getItemsFormJson();
 }
 
-<table class="table">
+<table class="table text-white">
     <thead class="table-dark">
         <tr>
             <th scope="col">Book Title</th>
@@ -15,26 +19,49 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in Model)
+        @if (Model == null || Model.Count == 0)
         {
             <tr>
-                <td>@item.Title</td>
-                <td>@item.Price</td>
-                <td>
-                    <form method="post" action="@Url.Action("UpdateQuantity", "Cart")">
-                        <input type="hidden" name="bookId" value="@item.BookId" />
-                        <input type="number" name="quantity" value="@item.Quantity" min="1" />
-                        <button type="submit">Update</button>
-                    </form>
-                </td>
-                <td>@(item.Price * item.Quantity)</td>
-                <td>
-                    <form method="post" action="@Url.Action("RemoveItem", "Cart")">
-                        <input type="hidden" name="bookId" value="@item.BookId" />
-                        <button type="submit">Remove</button>
-                    </form>
-                </td>
+                <td colspan="5" class="text-white">No items in cart.</td>
             </tr>
         }
+        else
+        {
+            @foreach (var item in itemsInCart)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Price</td>
+                    <td>
+                        <form method="post" action="@Url.Action("UpdateQuantity", "Cart")">
+                            <input type="hidden" name="bookId" value="@item.BookId" />
+                            <input type="number" name="quantity" value="@item.Quantity" min="1" />
+                            <button type="submit">Update</button>
+                        </form>
+                    </td>
+                    <td>@(item.Price * item.Quantity)</td>
+                    <td>
+                        <form method="post" action="@Url.Action("RemoveItem", "Cart")">
+                            <input type="hidden" name="bookId" value="@item.BookId" />
+                            <button type="submit">Remove</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        }
     </tbody>
+
+
+<tfoot class="table-dark">
+        <tr>
+            <td colspan="3"></td>
+            <td>
+                @if (Model != null && Model.Count > 0)
+                {
+                    <strong>Total: @Model.Sum(x => x.Price * x.Quantity)</strong>
+                }
+            </td>
+            <td></td>
+        </tr>
+
 </table>

@@ -25,7 +25,7 @@
 
             <a href="@Url.Action("Details", "Book", new { id = book.Id })">
                 <div class="card book-card" style="width: 25rem;">
-                    <img src="./Images/book.png" class="card-img-top mg-2" alt="...">
+                    <img src="./Images/book.png" class="card-img-top mg-2" alt="Books">
                     <div class="card-body">
                         <h5 class="card-title">@book.Title</h5>
                         @*Author*@
@@ -53,17 +53,12 @@
 
 <style>
         
-    .book-card:hover{
-       
-        transform: scale(1.05);
-        transition: 0.5s;
-    }
-
     .addcartbtn{
         /*pill shape*/
         
         border-radius: 20px;
-        background-color: #333;
+        background: rgb(33,33,37);
+        background: linear-gradient(98deg, rgba(33,33,37,1) 5%, rgba(57,57,59,1) 65%, rgba(90,95,96,1) 94%);
         border: 1px solid #333;
         
     }

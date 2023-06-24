@@ -61,14 +61,10 @@ namespace Book_Store_Website.Controllers
         public IActionResult Cart()
         {
             //Get the list
-            var cart = _cart.GetCart();
+            Cart cart = new Cart();
+            List<ItemsInCart> itemsInCart = cart.getItemsFormJson();
 
-            if (cart == null)
-            {
-                return Content("Cart is empty");
-            }
-
-            return View(cart);
+            return View(itemsInCart);
         }
 
         // AddToCart
@@ -84,7 +80,7 @@ namespace Book_Store_Website.Controllers
             }
 
             //Add book to cart
-            _cart.AddBookToCart(book.Id, book.Author, book.Title, 1, book.Price);
+            _cart.AddBookToCart(book.Id, book.Title, book.Author, 1, book.Price);
 
             return RedirectToAction("Cart");
         }

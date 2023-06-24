@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -10,7 +11,7 @@ namespace Book_Store_Website.Models
         public int BookId { get; set; }
 
         [Required]
-        public string Title { get; set; }
+        public string? Title { get; set; }
 
         [Required]
         public int Quantity { get; set; }
@@ -31,27 +32,64 @@ namespace Book_Store_Website.Models
             return Items;
         }
 
-        // Display the items in the cart to the console
-        public void DisplayCart()
+        // Return the json file
+        public List<ItemsInCart> getItemsFormJson()
         {
-            foreach (var item in Items)
+            string jsonContent = File.ReadAllText("Data/cart.json");
+            List<ItemsInCart>? items = JsonConvert.DeserializeObject<List<ItemsInCart>>(jsonContent);
+
+            foreach (var item in items)
             {
-                Console.WriteLine($"Book ID: {item.BookId}\nTitle: {item.Title}\nQuantity: {item.Quantity}\nAuthor: {item.Author}\nPrice: {item.Price}\n");
+                Items.Add(new ItemsInCart
+                {
+                    BookId = item.BookId,
+                    Title = item.Title,
+                    Author = item.Author,
+                    Quantity = item.Quantity,
+                    Price = item.Price
+                });
             }
+
+            return Items;
         }
 
         public void AddBookToCart(int bookId, string title, string author, int quantity, double price)
         {
-            ItemsInCart item = new ItemsInCart
+            //Save the items to the cart.json
+            Items.Add(new ItemsInCart
             {
                 BookId = bookId,
                 Title = title,
-                Quantity = quantity,
                 Author = author,
+                Quantity = quantity,
                 Price = price
-            };
+            });
 
-            Items.Add(item);
+            //Save the items to the cart.json
+            SaveItemsToCart();
+        }
+
+        private void SaveItemsToCart()
+        {
+            string file = "Data/cart.json";
+
+            string json = File.ReadAllText(file);
+            List<ItemsInCart>? itemsInCarts = JsonConvert.DeserializeObject<List<ItemsInCart>>(json);
+
+            itemsInCarts.Add(new ItemsInCart
+            {
+                BookId = Items[Items.Count - 1].BookId,
+                Title = Items[Items.Count - 1].Title,
+                Author = Items[Items.Count - 1].Author,
+                Quantity = Items[Items.Count - 1].Quantity,
+                Price = Items[Items.Count - 1].Price
+            });
+
+            string newJsonResult = JsonConvert.SerializeObject(itemsInCarts, Formatting.Indented);
+
+            File.WriteAllText(file, newJsonResult);
+
+            Console.WriteLine("Items saved to cart.json");
         }
 
         public void RemoveFromCart(int bookId)
