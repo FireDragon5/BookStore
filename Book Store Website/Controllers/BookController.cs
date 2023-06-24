@@ -65,6 +65,9 @@ namespace Book_Store_Website.Controllers
             Cart cart = new Cart();
             List<ItemsInCart> itemsInCart = cart.getItemsFormJson();
 
+            // Change the layout
+            ViewBag.Layout = "_Layout";
+
             return View(itemsInCart);
         }
 
@@ -127,6 +130,14 @@ namespace Book_Store_Website.Controllers
         public IActionResult Checkout()
         {
             return View();
+        }
+
+        //Clear cart
+        [HttpPost]
+        public IActionResult ClearCart()
+        {
+            _cart.ClearCart();
+            return RedirectToAction("Cart");
         }
     }
 }

@@ -25,6 +25,21 @@ int id = Model.Id;
 
                 <p class="des">@Model.Description</p>
             </div>
+
+            @*Add to cart button and back button put the buttons on the *@
+
+        <div class="col-md-12">
+                <a asp-action="AddToCart" asp-controller="Book"
+                   asp-route-id="@Model.Id" class="btn addcartbtn btn-primary float-end">
+                    <i class="fa fa-shopping-basket" aria-hidden="true"></i> Add to cart
+                </a>
+
+                <a asp-action="Index" asp-controller="Book" class="btn addcartbtn btn-primary float-start">
+                    <i class="fa fa-arrow-left" aria-hidden="true"></i> Back to List
+                </a>
+
+                </div>
+
         </div>
     </div>
 

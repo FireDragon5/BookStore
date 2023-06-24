@@ -2,6 +2,11 @@
 
 @{
     ViewData["Title"] = "Search";
+
+    //Textboxfor    
+
+    
+
 }
 
 <h1>Search Books</h1>
@@ -9,7 +14,9 @@
 <form method="post">
     <div class="form-group">
         <label for="search">Search by Title or Author:</label>
-        <input type="text" name="search" id="search" class="form-control" />
+        @*Use a textboxfor to search by title or author*@
+        <input type="text" class="form-control" id="search" name="search" />
+    
     </div>
     <br />
     <button type="submit" class="btn btn-primary">Search</button>

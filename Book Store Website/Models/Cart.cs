@@ -135,7 +135,19 @@ namespace Book_Store_Website.Models
 
         public void ClearCart()
         {
-            Items.Clear();
+            //Clear the cart.json
+            string file = "Data/cart.json";
+            string json = File.ReadAllText(file);
+
+            List<ItemsInCart>? itemsInCarts = JsonConvert.DeserializeObject<List<ItemsInCart>>(json);
+
+            itemsInCarts.Clear();
+
+            string newJsonResult = JsonConvert.SerializeObject(itemsInCarts, Formatting.Indented);
+
+            File.WriteAllText(file, newJsonResult);
+
+            Console.WriteLine("Items cleared from cart.json");
         }
 
         public void UpdateQuantity(int bookId, int quantity)
