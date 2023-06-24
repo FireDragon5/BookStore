@@ -19,6 +19,7 @@
 <table class="table text-white">
     <thead class="table-dark">
         <tr>
+            <th scope="col">Image</th>
             <th scope="col">Book Title</th>
             <th scope="col">Price</th>
             <th scope="col">Quantity</th>
@@ -30,7 +31,7 @@
         @if (Model == null || Model.Count == 0)
         {
             <tr>
-                <td colspan="5" class="text-white">No items in cart.</td>
+                <td colspan="6" class="text-white">No items in cart.</td>
             </tr>
         }
         else
@@ -38,6 +39,9 @@
             @foreach (var item in itemsInCart)
             {
                 <tr>
+                    @*Show the image of the book*@
+                    <td><img src="/Images/book2.png" width="100" /></td>
+
                     <td>@item.Title</td>
                     <td>@item.Price</td>
                     <td>
@@ -66,7 +70,11 @@
             <td>
                 @if (Model != null && Model.Count > 0)
                 {
-                    <strong>Total: @Model.Sum(x => x.Price * x.Quantity)</strong>
+
+                    //Round the total to 2 decimal places
+
+                    <strong>Total: @Math.Round(Model.Sum(x => x.Price * x.Quantity), 2)</strong>
+                   
                 }
             </td>
 
