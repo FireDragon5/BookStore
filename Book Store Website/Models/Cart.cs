@@ -76,14 +76,31 @@ namespace Book_Store_Website.Models
             string json = File.ReadAllText(file);
             List<ItemsInCart>? itemsInCarts = JsonConvert.DeserializeObject<List<ItemsInCart>>(json);
 
-            itemsInCarts.Add(new ItemsInCart
+            bool isItemInJson = false;
+
+            //If item is in json just update the quantity
+            foreach (var item in itemsInCarts)
             {
-                BookId = Items[Items.Count - 1].BookId,
-                Title = Items[Items.Count - 1].Title,
-                Author = Items[Items.Count - 1].Author,
-                Quantity = Items[Items.Count - 1].Quantity,
-                Price = Items[Items.Count - 1].Price
-            });
+                if (item.BookId == Items[Items.Count - 1].BookId)
+                {
+                    item.Quantity = Items[Items.Count - 1].Quantity + 1;
+                    isItemInJson = true;
+                    break;
+                }
+            }
+
+            //If item is not in json add it
+            if (!isItemInJson)
+            {
+                itemsInCarts.Add(new ItemsInCart
+                {
+                    BookId = Items[Items.Count - 1].BookId,
+                    Title = Items[Items.Count - 1].Title,
+                    Author = Items[Items.Count - 1].Author,
+                    Quantity = Items[Items.Count - 1].Quantity,
+                    Price = Items[Items.Count - 1].Price
+                });
+            }
 
             string newJsonResult = JsonConvert.SerializeObject(itemsInCarts, Formatting.Indented);
 
@@ -94,7 +111,26 @@ namespace Book_Store_Website.Models
 
         public void RemoveFromCart(int bookId)
         {
-            Items.RemoveAll(x => x.BookId == bookId);
+            //Remove the items from the cart.json
+            string file = "Data/cart.json";
+            string json = File.ReadAllText(file);
+
+            List<ItemsInCart>? itemsInCarts = JsonConvert.DeserializeObject<List<ItemsInCart>>(json);
+
+            foreach (var item in itemsInCarts)
+            {
+                if (item.BookId == bookId)
+                {
+                    itemsInCarts.Remove(item);
+                    break;
+                }
+            }
+
+            string newJsonResult = JsonConvert.SerializeObject(itemsInCarts, Formatting.Indented);
+
+            File.WriteAllText(file, newJsonResult);
+
+            Console.WriteLine("Items removed from cart.json");
         }
 
         public void ClearCart()
@@ -104,16 +140,26 @@ namespace Book_Store_Website.Models
 
         public void UpdateQuantity(int bookId, int quantity)
         {
-            var item = Items.Find(x => x.BookId == bookId);
-            if (item != null)
-            {
-                item.Quantity = quantity;
+            //Update the quantity in the cart.json
+            string file = "Data/cart.json";
+            string json = File.ReadAllText(file);
 
-                if (quantity == 0)
+            List<ItemsInCart>? itemsInCarts = JsonConvert.DeserializeObject<List<ItemsInCart>>(json);
+
+            foreach (var item in itemsInCarts)
+            {
+                if (item.BookId == bookId)
                 {
-                    RemoveFromCart(bookId);
+                    item.Quantity = quantity;
+                    break;
                 }
             }
+
+            string newJsonResult = JsonConvert.SerializeObject(itemsInCarts, Formatting.Indented);
+
+            File.WriteAllText(file, newJsonResult);
+
+            Console.WriteLine("Items quantity updated in cart.json");
         }
     }
 }

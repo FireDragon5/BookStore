@@ -33,7 +33,7 @@
                     <td>@item.Title</td>
                     <td>@item.Price</td>
                     <td>
-                        <form method="post" action="@Url.Action("UpdateQuantity", "Cart")">
+                        <form method="post" action="@Url.Action("UpdateQuantity", "Book")">
                             <input type="hidden" name="bookId" value="@item.BookId" />
                             <input type="number" name="quantity" value="@item.Quantity" min="1" />
                             <button type="submit">Update</button>
@@ -41,7 +41,7 @@
                     </td>
                     <td>@(item.Price * item.Quantity)</td>
                     <td>
-                        <form method="post" action="@Url.Action("RemoveItem", "Cart")">
+                        <form method="post" action="@Url.Action("RemoveFromCart", "Book")">
                             <input type="hidden" name="bookId" value="@item.BookId" />
                             <button type="submit">Remove</button>
                         </form>
@@ -61,7 +61,16 @@
                     <strong>Total: @Model.Sum(x => x.Price * x.Quantity)</strong>
                 }
             </td>
-            <td></td>
+            <td>
+                @if (Model != null && Model.Count > 0)
+                {
+                    <form method="post" action="@Url.Action("ClearCart", "Book")">
+                        <button type="submit">Clear Cart</button>
+                    </form>
+                }
+
+
+            </td>
         </tr>
 
 </table>

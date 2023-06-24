@@ -9,28 +9,21 @@ int id = Model.Id;
 }
 
 
-<h2 class="text-center">@ViewBag.Title</h2>
 
 
 <div class="d-flex justify-content-center">
 
-    <div class="row">
-        <div class="col cols-md-3 g-3 ">
-            <div class="card book-card text-black" style="width: 40rem;">
-                <img src="/Images/open_book.png" class="card-img-top " style="width: auto; height:25rem;" alt="Book">
-                <div class="card-body">
-                    <h5 class="card-title">@Model.Title</h5>
-                    <p class="card-text ">@Model.Description</p>
+    <div class="detials">
+        <h1 class="text-center">@Model.Title</h1>
+        <div class="row text-center">
+            <div class="col-md-6">
+                <img class="" src="/Images/open_book.png" width="350px">
 
+            </div>
+            <div class="col-md-6 autherDes">
+                <h3>@Model.Author</h3>
 
-                    <p class="card-text ">@Model.Author</p>
-
-                    <a href="@Url.Action("Index", "Book")" class="btn addcartbtn btn-primary">Back</a>
-
-                    @*Add to cart*@
-                    <a asp-action="AddToCart" asp-controller="Book"
-                       asp-route-id="@Model.Id" class="btn btn-primary addcartbtn float-end">Add to cart</a>
-                </div>
+                <p class="des">@Model.Description</p>
             </div>
         </div>
     </div>
@@ -73,8 +66,33 @@ int id = Model.Id;
 
 
 
+
+
+
+
 <style>
 
+
+    .detials img{
+        border-radius: 20px;
+        box-shadow: rgba(255, 255, 255, 0.4) -5px 5px, rgba(255, 255, 255, 0.3) -10px 10px, rgba(255, 255, 255, 0.2) -15px 15px, rgba(255, 255, 255, 0.1) -20px 20px, rgba(255, 255, 255, 0.05) -25px 25px;
+    }
+
+
+    .autherDes{
+        margin-top: 30px;
+
+    }
+
+    .detials {
+        /*light gray background color*/
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 50px;
+    }
+
+    .des{
+        font-size: 20px;
+    }
 
     .addcartbtn {
         /*pill shape*/

@@ -1,4 +1,5 @@
 ﻿using Book_Store_Website.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Book_Store_Website.Controllers
@@ -93,7 +94,7 @@ namespace Book_Store_Website.Controllers
         }
 
         [HttpPost]
-        public IActionResult RemoveItem(int bookId)
+        public IActionResult RemoveFromCart(int bookId)
         {
             _cart.RemoveFromCart(bookId);
             return RedirectToAction("Cart");
@@ -119,6 +120,13 @@ namespace Book_Store_Website.Controllers
             }
 
             return View(book);
+        }
+
+        //Checkout page
+        [Authorize]
+        public IActionResult Checkout()
+        {
+            return View();
         }
     }
 }
