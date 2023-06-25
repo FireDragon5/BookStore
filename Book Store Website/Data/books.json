@@ -4,70 +4,70 @@
     "Title": "The Great Gatsby",
     "Description": "The Great Gatsby is a 1925 novel by American writer F. Scott Fitzgerald. Set in the Jazz Age on Long Island, the novel depicts narrator Nick Carraway's interactions with mysterious millionaire Jay Gatsby and Gatsby's obsession to reunite with his former lover, Daisy Buchanan.",
     "Author": "F. Scott Fitzgerald",
-    "Price": 10.99
+    "Price": 149.99
   },
   {
     "Id": 2,
     "Title": "The Catcher in the Rye",
     "Description": "The Catcher in the Rye is a novel by J. D. Salinger, partially published in serial form in 1945�1946 and as a novel in 1951. It was originally intended for adults but is often read by adolescents for its themes of angst, alienation, and as a critique on superficiality in society.",
     "Author": "J. D. Salinger",
-    "Price": 9.99
+    "Price": 99.99
   },
   {
     "Id": 3,
     "Title": "The Grapes of Wrath",
     "Description": "The Grapes of Wrath is an American realist novel written by John Steinbeck and published in 1939. The book won the National Book Award and Pulitzer Prize for fiction, and it was cited prominently when Steinbeck was awarded the Nobel Prize in 1962.",
     "Author": "John Steinbeck",
-    "Price": 11.99
+    "Price": 85.99
   },
   {
     "Id": 4,
     "Title": "To Kill a Mockingbird",
     "Description": "To Kill a Mockingbird is a novel by Harper Lee published in 1960. Instantly successful, widely read in high schools and middle schools in the United States, it has become a classic of modern American literature, winning the Pulitzer Prize.",
     "Author": "Harper Lee",
-    "Price": 12.99
+    "Price": 249.99
   },
   {
     "Id": 5,
     "Title": "The Lord of the Rings",
     "Description": "The Lord of the Rings is an epic high fantasy novel by the English author and scholar J. R. R. Tolkien. Set in Middle-earth, the world at some distant time in the past, the story began as a sequel to Tolkien's 1937 children's book The Hobbit, but eventually developed into a much larger work.",
     "Author": "J. R. R. Tolkien",
-    "Price": 13.99
+    "Price": 119.99
   },
   {
     "Id": 6,
     "Title": "1984",
     "Description": "1984 is a dystopian novel by George Orwell, published in 1949. The story takes place in a totalitarian society where the government exercises complete control over its citizens. It is a haunting portrayal of the dangers of totalitarianism and the loss of individual freedom.",
     "Author": "George Orwell",
-    "Price": 8.99
+    "Price": 79.99
   },
   {
     "Id": 7,
     "Title": "Pride and Prejudice",
     "Description": "Pride and Prejudice is a romantic novel by Jane Austen, first published in 1813. The story follows the protagonist, Elizabeth Bennet, as she navigates issues of manners, upbringing, morality, and marriage in the society of the landed gentry in 19th-century England.",
     "Author": "Jane Austen",
-    "Price": 9.99
+    "Price": 49.99
   },
   {
     "Id": 8,
     "Title": "Moby-Dick",
     "Description": "Moby-Dick; or, The Whale is a novel by American writer Herman Melville, first published in 1851. It is a story of Captain Ahab's obsessive quest for revenge against the white whale, Moby Dick. The novel explores themes of obsession, fate, and the nature of evil.",
     "Author": "Herman Melville",
-    "Price": 11.99
+    "Price": 39.99
   },
   {
     "Id": 9,
     "Title": "The Chronicles of Narnia",
     "Description": "The Chronicles of Narnia is a series of seven fantasy novels by C.S. Lewis. The books transport readers to the magical world of Narnia, where they follow the adventures of various characters, including the Pevensie siblings and the mighty lion, Aslan.",
     "Author": "C.S. Lewis",
-    "Price": 10.99
+    "Price": 89.99
   },
   {
     "Id": 10,
     "Title": "Great Expectations",
     "Description": "Great Expectations is a novel by Charles Dickens, first published in 1861. It follows the life of an orphan named Pip and his journey from childhood to adulthood, exploring themes of social class, identity, and ambition in Victorian England.",
     "Author": "Charles Dickens",
-    "Price": 12.99
+    "Price": 109.99
   },
 
   {
@@ -75,35 +75,35 @@
     "Title": "The Alchemist",
     "Description": "The Alchemist is a philosophical novel by Brazilian author Paulo Coelho. It follows the journey of a young Andalusian shepherd boy named Santiago as he travels to Egypt in search of a hidden treasure, uncovering valuable life lessons along the way.",
     "Author": "Paulo Coelho",
-    "Price": 9.99
+    "Price": 499.99
   },
   {
     "Id": 12,
     "Title": "To the Lighthouse",
     "Description": "To the Lighthouse is a novel by Virginia Woolf, published in 1927. It is a pioneering work of modernist literature that explores the complexities of human relationships, the passage of time, and the meaning of art.",
     "Author": "Virginia Woolf",
-    "Price": 10.99
+    "Price": 349.99
   },
   {
     "Id": 13,
     "Title": "The Picture of Dorian Gray",
     "Description": "The Picture of Dorian Gray is a novel by Oscar Wilde, first published in 1890. It tells the story of a young man named Dorian Gray who remains eternally youthful while a portrait of him ages and reflects the consequences of his immoral actions.",
     "Author": "Oscar Wilde",
-    "Price": 8.99
+    "Price": 249.99
   },
   {
     "Id": 14,
     "Title": "Brave New World",
     "Description": "Brave New World is a dystopian novel by Aldous Huxley, published in 1932. Set in a futuristic world where society is controlled through technology and conditioning, it explores themes of individuality, freedom, and the dangers of a utopian society.",
     "Author": "Aldous Huxley",
-    "Price": 11.99
+    "Price": 789.99
   },
   {
     "Id": 15,
     "Title": "The Odyssey",
     "Description": "The Odyssey is an epic poem attributed to the ancient Greek poet Homer. It follows the hero Odysseus' journey home after the Trojan War, encountering mythical creatures, gods, and facing various challenges along the way.",
     "Author": "Homer",
-    "Price": 12.99
+    "Price": 55.99
   }
 
 ]

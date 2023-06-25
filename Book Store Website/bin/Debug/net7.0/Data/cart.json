@@ -1,37 +1,9 @@
 [
   {
-    "BookId": 2,
-    "Title": "The Catcher in the Rye",
-    "Quantity": 2,
-    "Author": "J. D. Salinger",
-    "Price": 9.99
-  },
-  {
-    "BookId": 3,
-    "Title": "The Grapes of Wrath",
+    "BookId": 1,
+    "Title": "The Great Gatsby",
     "Quantity": 1,
-    "Author": "John Steinbeck",
-    "Price": 11.99
-  },
-  {
-    "BookId": 5,
-    "Title": "The Lord of the Rings",
-    "Quantity": 1,
-    "Author": "J. R. R. Tolkien",
-    "Price": 13.99
-  },
-  {
-    "BookId": 2,
-    "Title": "The Catcher in the Rye",
-    "Quantity": 1,
-    "Author": "J. D. Salinger",
-    "Price": 9.99
-  },
-  {
-    "BookId": 2,
-    "Title": "The Catcher in the Rye",
-    "Quantity": 1,
-    "Author": "J. D. Salinger",
-    "Price": 9.99
+    "Author": "F. Scott Fitzgerald",
+    "Price": 10.99
   }
 ]

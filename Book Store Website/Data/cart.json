@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "BookId": 3,
+    "Title": "The Grapes of Wrath",
+    "Quantity": 1,
+    "Author": "John Steinbeck",
+    "Price": 85.99
+  },
+  {
+    "BookId": 5,
+    "Title": "The Lord of the Rings",
+    "Quantity": 1,
+    "Author": "J. R. R. Tolkien",
+    "Price": 119.99
+  }
+]

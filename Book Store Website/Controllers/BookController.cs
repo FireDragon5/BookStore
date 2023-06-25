@@ -86,7 +86,7 @@ namespace Book_Store_Website.Controllers
             //Add book to cart
             _cart.AddBookToCart(book.Id, book.Title, book.Author, 1, book.Price);
 
-            return RedirectToAction("Cart");
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
