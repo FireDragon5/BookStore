@@ -51,7 +51,7 @@
                             <button type="submit">Update</button>
                         </form>
                     </td>
-                    <td>@(item.Price * item.Quantity)</td>
+                    <td>@Math.Round(item.Price * item.Quantity, 2)</td>
                     <td>
                         <form method="post" action="@Url.Action("RemoveFromCart", "Book")">
                             <input type="hidden" name="bookId" value="@item.BookId" />
