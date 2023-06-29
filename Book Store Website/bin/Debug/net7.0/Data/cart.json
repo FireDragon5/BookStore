@@ -1,1 +1,9 @@
-[]
+[
+  {
+    "BookId": 2,
+    "Title": "The Catcher in the Rye",
+    "Quantity": 1,
+    "Author": "J. D. Salinger",
+    "Price": 99.99
+  }
+]

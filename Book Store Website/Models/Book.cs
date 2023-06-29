@@ -48,8 +48,8 @@ namespace Book_Store_Website.Models
         {
             public static List<Book>? getSearchedBook()
             {
-                string jsonContent = File.ReadAllText("Data/books.json");
-                List<Book>? books = JsonConvert.DeserializeObject<List<Book>>(jsonContent);
+                string getJson = File.ReadAllText("Data/books.json");
+                List<Book>? books = JsonConvert.DeserializeObject<List<Book>>(getJson);
                 return books;
             }
 
@@ -82,11 +82,11 @@ namespace Book_Store_Website.Models
             return book;
         }
 
-        public static List<Book>? LoadBooksFromJson(string filePath)
+        public static List<Book>? LoadBooksFromJson(string whereTheFileIsLocated)
         {
-            string jsonData = File.ReadAllText(filePath);
-            List<Book>? books = JsonConvert.DeserializeObject<List<Book>>(jsonData);
-            return books;
+            string data = File.ReadAllText(whereTheFileIsLocated);
+            List<Book>? listOfTheBooks = JsonConvert.DeserializeObject<List<Book>>(data);
+            return listOfTheBooks;
         }
     }
 
@@ -103,4 +103,10 @@ namespace Book_Store_Website.Models
             return books;
         }
     }
+
+
+
+
+
+
 }

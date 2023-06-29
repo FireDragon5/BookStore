@@ -1,23 +1,9 @@
 [
   {
-    "BookId": 1,
-    "Title": "The Great Gatsby",
-    "Quantity": 6,
-    "Author": "F. Scott Fitzgerald",
-    "Price": 149.99
-  },
-  {
     "BookId": 2,
     "Title": "The Catcher in the Rye",
-    "Quantity": 4,
+    "Quantity": 1,
     "Author": "J. D. Salinger",
     "Price": 99.99
-  },
-  {
-    "BookId": 3,
-    "Title": "The Grapes of Wrath",
-    "Quantity": 3,
-    "Author": "John Steinbeck",
-    "Price": 85.99
   }
 ]
