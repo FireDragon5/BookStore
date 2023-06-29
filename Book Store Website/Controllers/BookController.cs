@@ -26,6 +26,9 @@ namespace Book_Store_Website.Controllers
             return View(book.Books);
         }
 
+
+        //To display the search.chtml
+
         public IActionResult Search()
         {
             List<Book> books = Book.LoadBooksFromJson("./Data/books.json");
@@ -51,6 +54,8 @@ namespace Book_Store_Website.Controllers
             return View(books);
         }
 
+
+        // Get all books
         [HttpPost]
         public IActionResult GetAllBooks()
         {
@@ -89,6 +94,9 @@ namespace Book_Store_Website.Controllers
             return RedirectToAction("Index");
         }
 
+
+
+        //Update the quantity of the books if the user clicks the update button
         [HttpPost]
         public IActionResult UpdateQuantity(int bookId, int quantity)
         {
@@ -96,6 +104,9 @@ namespace Book_Store_Website.Controllers
             return RedirectToAction("Cart");
         }
 
+
+
+        //When the user clicks on the remove button it will remove the book form the cart.
         [HttpPost]
         public IActionResult RemoveFromCart(int bookId)
         {
@@ -103,6 +114,8 @@ namespace Book_Store_Website.Controllers
             return RedirectToAction("Cart");
         }
 
+
+        //Details
         [HttpPost]
         public IActionResult Details()
         {
