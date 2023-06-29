@@ -35,4 +35,17 @@ li:hover{
 
 }
 
+/*Change the scroll bar  color*/
+::-webkit-scrollbar {
+    width: 15px;
+    background-color: #333;
+}
+
+/*Change the scroll bar thumb color*/
+
+::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    border-radius: 20px;
+}
+
 
