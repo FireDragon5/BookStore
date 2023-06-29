@@ -4,11 +4,16 @@
     ViewBag.Title = "Cart";
 
     //Layout 
-        Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
     // Get the items from the JSON file
     Cart cart = new Cart();
     List<ItemsInCart> itemsInCart = cart.getItemsFormJson();
+
+
+
+
+
 }
 
 
@@ -45,10 +50,14 @@
                     <td>@item.Title</td>
                     <td>@item.Price</td>
                     <td>
+
                         <form method="post" action="@Url.Action("UpdateQuantity", "Book")">
                             <input type="hidden" name="bookId" value="@item.BookId" />
                             <input id="q" type="number" name="quantity" value="@item.Quantity" min="1" />
                             <button type="submit">Update</button>
+
+
+
                         </form>
                     </td>
                     <td>@Math.Round(item.Price * item.Quantity, 2)</td>
